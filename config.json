@@ -1,0 +1,7 @@
+{
+    "capture_folder": "captures",
+    "recordings_folder": "recordings",
+    "fps": 20.0,
+    "frame_size": [640, 480],
+    "min_area": 5000
+}
