@@ -18,8 +18,9 @@ MIN_AREA = config["min_area"]
 class Capture:
 
     # 0 is the default camera port
-    camera_port = 0
+    camera_port = 1
     camera = cv2.VideoCapture(camera_port)
+
 
     def __init__(self) -> None:
         frame_width = int(self.camera.get(cv2.CAP_PROP_FRAME_WIDTH))
@@ -31,7 +32,12 @@ class Capture:
         print(f"Frame Height: {frame_height}")
         print(f"FPS: {fps}")
 
+    
 # if ran as a python file
 if __name__ == '__main__':
     cap = Capture()
-    cap.record_motion()
+    #cap.record_motion()
+    reval, image = cap.camera.read()
+    if reval == True:
+        cv2.imshow('Capture', image)
+    cv2.waitKey(0)
